@@ -1,1 +1,1 @@
-# spring-annotation-Resource
+# spring-annotation-autowired
