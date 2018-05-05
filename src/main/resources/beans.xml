@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context.xsd">
+
+<context:annotation-config />
+
+<!-- id 和 name 都可以，id更常用 -->
+	<bean name="userDAO111" class="com.huanle.dao.impl.UserDAOImplNum1">
+		<property name="daoId" value="1"></property>
+	</bean>
+
+	<bean id="userDAO222" class="com.huanle.dao.impl.UserDAOImplNum2">
+		<property name="daoId" value="2"></property>
+	</bean>
+
+<!-- 通过context:annotation-config在UserService.java里使用@Autowired注解来注入userDAO的实现
+默认是按type来注入，但是有多个userDAO的bean情况下，需要用@Qualifier指定具体bean
+ -->
+	<bean id="userService" class="com.huanle.service.UserService">
+	</bean>
+
+</beans>
